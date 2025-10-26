@@ -1,0 +1,530 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+\usetheme[]{AAUsimple}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+% --- AAU Secondary Color Definitions ---
+\definecolor{aauDarkOrange}{RGB}{187, 91, 23}
+\definecolor{aauDarkGold}{RGB}{151, 112, 31}
+\definecolor{aauDarkBlue}{RGB}{0, 127, 163}
+\definecolor{aauDarkGreen}{RGB}{14, 133, 99}
+\definecolor{aauLightBlue}{RGB}{49, 169, 193}
+
+% Consistent styling helpers
+\newcommand{\placeholder}[1]{\textit{[#1]}}
+\newcommand{\memecue}[1]{\textcolor{aauDarkBlue}{\textbf{Meme cue:} #1}}
+
+% colored hyperlinks
+\newcommand{\chref}[2]{%
+  \href{#1}{{\usebeamercolor[bg]{AAUsimple}#2}}%
+}
+
+\title{AI Benchmarks, Liability, and Legal Practice}
+\subtitle{Ph.d-kursus i KI og jura --- Field Report}
+\date{27 October 2024}
+
+\author{Roman Jurowetzki}
+
+\institute[
+  AAU Business School\\
+  CAISA (Center for AI in Society)
+]
+{
+  Aalborg University Business School\\
+  Center for AI in Society (CAISA)
+}
+
+\pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/aau_logo_new}
+\titlegraphic{\pgfuseimage{titlepagelogo}}
+
+\addbibresource{references.bib}
+
+\begin{document}
+
+{\aauwavesbg%
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}}
+
+\section{Opening Stance}
+
+\begin{frame}{This is a field report (not legal advice)}
+  \vfill
+  \begin{center}
+    {\Huge This is a field report (not legal advice)}
+  \end{center}
+  \vfill
+  \begin{flushright}
+    \textit{Economist $\rightarrow$ patents \textbullet{} measurement \textbullet{} AI tooling}
+  \end{flushright}
+\end{frame}
+
+\begin{frame}{24 months changed the job}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \textbf{From chat toy to workflow fabric}
+      \begin{itemize}
+        \item Agentic integration stacks (MCP) turn prompts into actions.
+        \item Enterprise adoption timelines compress into quarters, not years.
+        \item Benchmarks and governance lag adoption velocity.
+      \end{itemize}
+      \memecue{``This is fine'' remix as visual jolt}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{\placeholder{Timeline graphic}}
+        \centering
+        \placeholder{2023 $\rightarrow$ 2025 milestones illustrating MCP uptake}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{mcp_site,anthropic_mcp,windows_mcp}
+\end{frame}
+
+\section{Capability vs Liability}
+
+\begin{frame}{Capability \(\uparrow\) vs Reliability \(\leftrightarrow\)}
+  \begin{columns}[T]
+    \begin{column}{0.58\textwidth}
+      \textbf{The liability zone opens up}
+      \begin{itemize}
+        \item LLMs read, draft, and synthesize with astounding breadth.
+        \item Reliability plateaus on long-context, citation, and jurisdiction discipline.
+        \item Humans become the verification and accountability layer.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{\placeholder{Dual-curve chart}}
+        \centering
+        \placeholder{Steep capability curve vs flat reliability curve; shaded ``Liability Zone'' gap}
+      \end{block}
+      \memecue{Spider-Man pointing at Spider-Man (``useful'' vs ``trustworthy'')}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{gemini_blog,gemini_longcontext,claude35_sonnet,gpt41_openai,gpt41_azure}
+\end{frame}
+
+\begin{frame}{How to work with it}
+  \textbf{Treat the model as a zero-trust, fast, occasionally brilliant intern.}
+  \vspace{1em}
+  \begin{itemize}
+    \item Require sources, intermediate steps, and explicit uncertainties.
+    \item You still sign it --- review remains non-delegable.
+    \item Design workflow checklists that make validation cheap and default.
+  \end{itemize}
+  \vfill
+  \begin{center}
+    \placeholder{Large ``TRUST, BUT VERIFY'' stamp graphic}
+  \end{center}
+  \vfill
+  \small \parencite{hai_hallucination}
+\end{frame}
+
+\begin{frame}{Three lazy takes to retire}
+  \begin{columns}[T]
+    \begin{column}{0.33\textwidth}
+      \centering
+      {\Large Autocomplete.}
+      \vspace{0.5em}
+      \placeholder{Minimalist icon placeholder}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \centering
+      {\Large Just ban it.}
+      \vspace{0.5em}
+      \placeholder{Minimalist icon placeholder}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \centering
+      {\Large Passed the bar.}
+      \vspace{0.5em}
+      \placeholder{Minimalist icon placeholder}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small Optional reading: \parencite{stanford_legal_hallucination}
+\end{frame}
+
+\section{Benchmarks as Governance}
+
+\begin{frame}{Benchmarks are power tools}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Why they matter}
+      \begin{itemize}
+        \item Define ``good enough'' for procurement and regulation.
+        \item Shift labor and delegation once tasks go ``green'' on scoreboards.
+        \item Surface liability exposure when designed around harms.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{\placeholder{Leaderboard mockup}}
+        \centering
+        \placeholder{Fake leaderboard stamped ``SAFE TO SIGN?''}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{legalbench_site,lexglue_paper,coliee_site}
+\end{frame}
+
+\begin{frame}{Measure what matters to law}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Performance metrics}
+      \begin{itemize}
+        \item MCQ accuracy and doctrinal recall.
+        \item Fluency, summarization, translation.
+        \item ``Bar exam'' style leaderboards.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \textbf{Liability metrics}
+      \begin{itemize}
+        \item Citation fidelity and provenance display.
+        \item Jurisdiction discipline and issue spotting.
+        \item Auditability and supervision cost baselines.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{large_legal_fictions}
+\end{frame}
+
+\begin{frame}{Why leaderboards lie}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Contamination and drift}
+      \begin{itemize}
+        \item Training data leaks into public benchmarks.
+        \item Static test sets invite overfitting and cherry-picking.
+        \item Need for dynamic, leak-resistant evaluation sandboxes.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{\placeholder{Venn diagram}}
+        \centering
+        \placeholder{Overlap between training and test distributions}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{leak_cheat_repeat,contamination_forget}
+\end{frame}
+
+\begin{frame}{Sovereignty = evaluation labs}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \textbf{Capacity beats owning a model}
+      \begin{itemize}
+        \item Criteria $\rightarrow$ tests $\rightarrow$ red teams $\rightarrow$ procurement.
+        \item Independent labs certify liability benchmarks and audit trails.
+        \item Aligns with EU AI Act institutional build-out.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{block}{\placeholder{Pyramid diagram}}
+        \centering
+        \placeholder{Four-layer pyramid: Criteria, Tests, Red-team, Procurement}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{eu_ai_act_overview,eu_ai_act_timeline}
+\end{frame}
+
+\section{Agents and Audit Trails}
+
+\begin{frame}{AI now does things}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \textbf{From chatbot to actor}
+      \begin{itemize}
+        \item MCP standardizes tool access --- ``USB-C for AI.''
+        \item Workflows trigger file edits, database writes, policy updates.
+        \item Governance must log who approved what and when.
+      \end{itemize}
+      \memecue{Add ``WHO APPROVED THIS?'' caption on workflow graphic}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{\placeholder{Flow diagram}}
+        \centering
+        \placeholder{Reg change $\rightarrow$ AI draft $\rightarrow$ staged deployment}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{mcp_site,windows_mcp,copilot_studio_mcp}
+\end{frame}
+
+\begin{frame}{Logs \textgreater{} vibes}
+  \textbf{Audit rails by design}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Capture prompts, retrieved sources, tool calls, and outputs.
+        \item Maintain sign-off checkpoints with human IDs and timestamps.
+        \item Make audit trails tamper-evident and exportable for regulators.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{block}{\placeholder{Checklist icons}}
+        \centering
+        \placeholder{Inputs \textbullet{} Sources \textbullet{} Steps \textbullet{} Outputs}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Rules as Code}
+
+\begin{frame}{Rules you can run}
+  \textbf{Draft human text alongside executable logic for clarity and testability.}
+  \vspace{1em}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \textbf{Why it matters}
+      \begin{itemize}
+        \item Reduces ambiguity and implementation drift.
+        \item Enables pre-deployment simulation and unit testing.
+        \item Bridges legal drafting and engineering review.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{\placeholder{Split-panel graphic}}
+        \centering
+        \placeholder{``Human text'' panel || ``Executable logic'' panel}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{better_rules_nz,oecd_rules_code}
+\end{frame}
+
+\begin{frame}{It\textquotesingle s already happening}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Catala}
+      \begin{itemize}
+        \item Domain-specific language for statutory logic.
+        \item Handles exceptions and defeasibility explicitly.
+        \item Supports formal verification and bug finding.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \textbf{OpenFisca}
+      \begin{itemize}
+        \item Open-source microsimulation engine.
+        \item Powers tax \& benefit models in France and beyond.
+        \item Hooks into policy prototyping toolchains.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \vfill
+  \begin{center}
+    \placeholder{Badges for ``Catala'' and ``OpenFisca''}
+  \end{center}
+  \small \parencite{catala,openfisca,openfisca_docs}
+\end{frame}
+
+\begin{frame}{Test before it governs}
+  \begin{columns}[T]
+    \begin{column}{0.58\textwidth}
+      \textbf{Unit-testing society}
+      \begin{itemize}
+        \item Generate synthetic households and firms.
+        \item Simulate policy changes for edge cases and regressions.
+        \item Catch discrimination and contradictions pre-launch.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \begin{block}{\placeholder{Pseudocode + question}}
+        \centering
+        \placeholder{Tiny pseudocode block with caption ``WHO GETS DENIED AT THE EDGES?''}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{cutecat}
+\end{frame}
+
+\begin{frame}{Law as complex system}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \textbf{Deterministic, yet opaque}
+      \begin{itemize}
+        \item Interacting rules create emergent behaviour.
+        \item Exceptions and overrides compound complexity.
+        \item Measurement needs system-level telemetry.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{block}{\placeholder{Dual box graphic}}
+        \centering
+        \placeholder{LAW (complex system) vs LLM (statistical)}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Epistemology: wizard mode}
+  \begin{columns}[T]
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Answers without steps break reasons-giving norms.
+        \item Force disclosure of sources, reasoning chains, and uncertainty.
+        \item Teach teams to interrogate the ``wizard'' output.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+      \begin{block}{\placeholder{Wizard illustration}}
+        \centering
+        \placeholder{Stylised ``wizard'' icon with annotation}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{mollick_wizards}
+\end{frame}
+
+\section{Current Practice and Risk}
+
+\begin{frame}{Already normal in biglaw workflows}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item A\&O rolled Harvey across practice areas; every draft human-reviewed.
+        \item Westlaw and Lexis ship AI assistants with guardrails and audit logs.
+        \item Clients expect augmented teams, not manual workflows.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{\placeholder{Logo placeholders}}
+        \centering
+        \placeholder{Generic firm / vendor logos}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{reuters_harvey1,reuters_harvey2,tr_westlaw_launch,tr_cocounsel_integration}
+\end{frame}
+
+\begin{frame}{You still sign it}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \textbf{Sanctions \& verification duty}
+      \begin{itemize}
+        \item Courts sanction hallucinated citations (Mata v. Avianca).
+        \item Judges now ask counsel to certify AI usage and checks.
+        \item Rising tide of publicised fake-citation incidents.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{\placeholder{Red stamp graphic}}
+        \centering
+        \placeholder{Custom ``YOU STILL SIGN IT'' stamp}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{mata_v_avianca,washingtonpost_hallucinations,businessinsider_fakecites}
+\end{frame}
+
+\begin{frame}{The 5 checks before anything leaves draft}
+  \textbf{Practical workflow: the 5-Q sign-off}
+  \vspace{1em}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Source? $\rightarrow$ Do I have verifiable citations?
+        \item Jurisdiction? $\rightarrow$ Does it fit the right legal frame?
+        \item Changes? $\rightarrow$ What did the model alter or omit?
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item Audit? $\rightarrow$ Is the log exportable and complete?
+        \item Harm-at-scale? $\rightarrow$ Could automation amplify errors?
+      \end{itemize}
+      \begin{block}{\placeholder{Icon strip}}
+        \centering
+        \placeholder{Five minimalist icons for each question}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\section{Call to Action}
+
+\begin{frame}{EVALUATE \textbullet{} BENCHMARK \textbullet{} SIMULATE}
+  \textbf{Research agenda for the room}
+  \vspace{1em}
+  \begin{enumerate}
+    \item Build liability-centric benchmarks (citation fidelity, jurisdiction checks, audit cost).
+    \item Stand up evaluation sandboxes that resist leakage and match real tasks.
+    \item Prototype Rules-as-Code plus simulation in one policy domain (Catala + OpenFisca).
+  \end{enumerate}
+  \vfill
+  \begin{center}
+    \placeholder{Massive typography treatment of the three verbs}
+  \end{center}
+  \vfill
+  \small \parencite{legalbench_site,lexglue_paper,catala,openfisca}
+\end{frame}
+
+\begin{frame}{Micro-sim: eligibility rule}
+  \begin{columns}[T]
+    \begin{column}{0.55\textwidth}
+      \textbf{Optional demo (if time)}
+      \begin{itemize}
+        \item Start with CSV of synthetic households.
+        \item Apply rule logic (Catala/OpenFisca) with toggleable parameter.
+        \item Show histogram shift when a threshold moves.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \begin{block}{\placeholder{Flow graphic}}
+        \centering
+        \placeholder{CSV $\rightarrow$ Rule $\rightarrow$ Histogram animation}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \vfill
+  \small \parencite{openfisca_docs,openfisca_france}
+\end{frame}
+
+\begin{frame}{If you had to choose\ldots}
+  \begin{columns}[T]
+    \begin{column}{0.5\textwidth}
+      \centering
+      \placeholder{Large button graphic: ``Performance'' unchecked}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \centering
+      \placeholder{Large button graphic: ``Liability'' checked}
+    \end{column}
+  \end{columns}
+  \vfill
+  \textbf{Q\&A prompts}
+  \begin{itemize}
+    \item Who writes and maintains benchmarks?
+    \item What is the minimum audit trail you require?
+    \item When does failure to simulate become negligence?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+  \small
+  \printbibliography
+\end{frame}
+
+\end{document}
